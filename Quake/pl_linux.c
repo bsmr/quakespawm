@@ -22,25 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "quakedef.h"
 
-static const Uint8 bmp_bytes[] =
-{
-#include "fitz_bmp.h"
-};
-
 void PL_SetWindowIcon (void)
 {
-	SDL_RWops	*rwop;
-	SDL_Surface	*icon;
-
-	/* SDL_RWFromConstMem() requires SDL >= 1.2.7 */
-	rwop = SDL_RWFromConstMem(bmp_bytes, sizeof(bmp_bytes));
-	if (rwop == NULL)
-		return;
-	icon = SDL_LoadBMP_RW(rwop, 1);
-	if (icon == NULL)
-		return;
-	SDL_WM_SetIcon(icon, NULL);
-	SDL_FreeSurface(icon);
+    // TODO: implement this
 }
 
 void PL_VID_Shutdown (void)
@@ -49,8 +33,6 @@ void PL_VID_Shutdown (void)
 
 void PL_ErrorDialog(char *text)
 {
-// TODO: we can dlopen gtk for an error
-// dialog window. would it be worth it?
-	fprintf(stderr, "%s\n", text);
+    // TODO: implement this properly
+    printf(text);
 }
-
