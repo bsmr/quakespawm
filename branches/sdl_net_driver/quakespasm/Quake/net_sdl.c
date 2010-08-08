@@ -67,7 +67,7 @@ net_driver_t net_drivers[MAX_NET_DRIVERS] =
 
 int net_numdrivers = 2;
 
-#include "net_sdlnet.h"
+#include "net_udp.h"
 
 net_landriver_t	net_landrivers[MAX_NET_DRIVERS] =
 {
@@ -75,24 +75,24 @@ net_landriver_t	net_landrivers[MAX_NET_DRIVERS] =
 		"UDP",
 		false,
 		0,
-		SDLN_Init,
-		SDLN_Shutdown,
-		SDLN_Listen,
-		SDLN_OpenSocket,
-		SDLN_CloseSocket,
-		SDLN_Connect,
-		SDLN_CheckNewConnections,
-		SDLN_Read,
-		SDLN_Write,
-		SDLN_Broadcast,
-		SDLN_AddrToString,
-		SDLN_StringToAddr,
-		SDLN_GetSocketAddr,
-		SDLN_GetNameFromAddr,
-		SDLN_GetAddrFromName,
-		SDLN_AddrCompare,
-		SDLN_GetSocketPort,
-		SDLN_SetSocketPort
+		UDP_Init,
+		UDP_Shutdown,
+		UDP_Listen,
+		UDP_OpenSocket,
+		UDP_CloseSocket,
+		UDP_Connect,
+		UDP_CheckNewConnections,
+		UDP_Read,
+		UDP_Write,
+		UDP_Broadcast,
+		UDP_AddrToString,
+		UDP_StringToAddr,
+		UDP_GetSocketAddr,
+		UDP_GetNameFromAddr,
+		UDP_GetAddrFromName,
+		UDP_AddrCompare,
+		UDP_GetSocketPort,
+		UDP_SetSocketPort
 	}
 };
 

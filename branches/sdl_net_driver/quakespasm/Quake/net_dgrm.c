@@ -1308,12 +1308,10 @@ static qsocket_t *_Datagram_Connect (char *host)
 				// is it from the right place?
 				if (sfunc.AddrCompare(&readaddr, &sendaddr) != 0)
 				{
-//#ifdef DEBUG
-					Con_Printf("wrong reply address\n");
-					Con_Printf("Expected: %s | %s\n", dfunc.AddrToString (&sendaddr), StrAddr(&sendaddr));
-					Con_Printf("Received: %s | %s\n", dfunc.AddrToString (&readaddr), StrAddr(&readaddr));
+					Con_DPrintf("wrong reply address\n");
+					Con_DPrintf("Expected: %s | %s\n", dfunc.AddrToString (&sendaddr), StrAddr(&sendaddr));
+					Con_DPrintf("Received: %s | %s\n", dfunc.AddrToString (&readaddr), StrAddr(&readaddr));
 					SCR_UpdateScreen ();
-//#endif
 					ret = 0;
 					continue;
 				}

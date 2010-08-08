@@ -189,7 +189,9 @@ int SDLN_OpenSocket (int port)
 {
 	UDPsocket		newsocket;
 	static IPaddress	address;
+	IPaddress *add2;
 	Uint16		_port = port;
+	int			channel;
 
 	if ((newsocket = SDLNet_UDP_Open(_port)) == NULL)
 		return -1;
@@ -197,8 +199,10 @@ int SDLN_OpenSocket (int port)
 	address.host = myaddr.host;
 	address.port = SDLNet_Read16(&_port);
 
-	if (SDLNet_UDP_Bind(newsocket, 0, &address) != -1)
+	if ((channel = SDLNet_UDP_Bind(newsocket, -1, &address) != -1)){
+		add2 = SDLNet_UDP_GetPeerAddress(newsocket, channel);
 		return socket_id(newsocket);
+	}
 
 	Sys_Error ("Unable to bind to %s", _IPAddrToString(&address));
 
