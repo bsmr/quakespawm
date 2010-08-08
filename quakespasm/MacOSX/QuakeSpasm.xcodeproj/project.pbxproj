@@ -81,12 +81,12 @@
 		486577CD0D31A22A00E7920A /* snd_mix.c in Sources */ = {isa = PBXBuildFile; fileRef = 486577CA0D31A22A00E7920A /* snd_mix.c */; };
 		48728D2D0D3004A80004D61B /* net_dgrm.c in Sources */ = {isa = PBXBuildFile; fileRef = 48728D280D3004A70004D61B /* net_dgrm.c */; };
 		48728D2E0D3004A80004D61B /* net_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 48728D2A0D3004A80004D61B /* net_loop.c */; };
-		487C0A5D0DA94A0700A49FF5 /* net_sdlnet.c in Sources */ = {isa = PBXBuildFile; fileRef = 487C0A5B0DA94A0700A49FF5 /* net_sdlnet.c */; };
 		48895DB90D4914A000849ABF /* pl_osx.m in Sources */ = {isa = PBXBuildFile; fileRef = 48895DB80D4914A000849ABF /* pl_osx.m */; };
 		4890A4621205A27B00452753 /* SUUpdaterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4890A4611205A27B00452753 /* SUUpdaterDelegate.m */; };
 		4890A5D21205D55700452753 /* UpdateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4890A5D11205D55700452753 /* UpdateButton.m */; };
 		4890A5E81205D6D400452753 /* rnotes.css in Resources */ = {isa = PBXBuildFile; fileRef = 4890A5E61205D6D400452753 /* rnotes.css */; };
 		4890A5E91205D6D400452753 /* rnotes.html in Resources */ = {isa = PBXBuildFile; fileRef = 4890A5E71205D6D400452753 /* rnotes.html */; };
+		489B9803120F37E8000C9282 /* net_udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 489B9801120F37E8000C9282 /* net_udp.c */; };
 		489D8D2F0D3A630D00AA4471 /* ScreenInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 489D8D2E0D3A630D00AA4471 /* ScreenInfo.m */; };
 		48B9E7880D340B1E0001CACF /* Launcher.nib in Resources */ = {isa = PBXBuildFile; fileRef = 48B9E7860D340B1E0001CACF /* Launcher.nib */; };
 		48B9E7A70D340BEA0001CACF /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9E7A60D340BEA0001CACF /* AppController.m */; };
@@ -229,6 +229,7 @@
 		4846EB500D329BEB00A108DE /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = platform.h; path = ../Quake/platform.h; sourceTree = SOURCE_ROOT; };
 		4847CD5E12057F94000B560F /* sys_sdl_unix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sys_sdl_unix.c; path = ../Quake/sys_sdl_unix.c; sourceTree = SOURCE_ROOT; };
 		484AA4B30D3FF6C0005D917A /* QuakeSpasm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = QuakeSpasm.icns; sourceTree = "<group>"; };
+		485B585F120F3090005C5C8F /* net_sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_sys.h; path = ../Quake/net_sys.h; sourceTree = SOURCE_ROOT; };
 		486577C80D31A22A00E7920A /* snd_dma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_dma.c; path = ../Quake/snd_dma.c; sourceTree = SOURCE_ROOT; };
 		486577C90D31A22A00E7920A /* snd_mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_mem.c; path = ../Quake/snd_mem.c; sourceTree = SOURCE_ROOT; };
 		486577CA0D31A22A00E7920A /* snd_mix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_mix.c; path = ../Quake/snd_mix.c; sourceTree = SOURCE_ROOT; };
@@ -236,8 +237,6 @@
 		48728D290D3004A80004D61B /* net_dgrm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_dgrm.h; path = ../Quake/net_dgrm.h; sourceTree = SOURCE_ROOT; };
 		48728D2A0D3004A80004D61B /* net_loop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_loop.c; path = ../Quake/net_loop.c; sourceTree = SOURCE_ROOT; };
 		48728D2B0D3004A80004D61B /* net_loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_loop.h; path = ../Quake/net_loop.h; sourceTree = SOURCE_ROOT; };
-		487C0A5B0DA94A0700A49FF5 /* net_sdlnet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_sdlnet.c; path = ../Quake/net_sdlnet.c; sourceTree = SOURCE_ROOT; };
-		487C0A5C0DA94A0700A49FF5 /* net_sdlnet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_sdlnet.h; path = ../Quake/net_sdlnet.h; sourceTree = SOURCE_ROOT; };
 		48895DB80D4914A000849ABF /* pl_osx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pl_osx.m; path = ../Quake/pl_osx.m; sourceTree = SOURCE_ROOT; };
 		4890A4601205A27B00452753 /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUpdaterDelegate.h; sourceTree = "<group>"; };
 		4890A4611205A27B00452753 /* SUUpdaterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUpdaterDelegate.m; sourceTree = "<group>"; };
@@ -245,6 +244,8 @@
 		4890A5D11205D55700452753 /* UpdateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateButton.m; sourceTree = "<group>"; };
 		4890A5E61205D6D400452753 /* rnotes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = rnotes.css; sourceTree = "<group>"; };
 		4890A5E71205D6D400452753 /* rnotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rnotes.html; sourceTree = "<group>"; };
+		489B9801120F37E8000C9282 /* net_udp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_udp.c; path = ../Quake/net_udp.c; sourceTree = SOURCE_ROOT; };
+		489B9802120F37E8000C9282 /* net_udp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_udp.h; path = ../Quake/net_udp.h; sourceTree = SOURCE_ROOT; };
 		489D8D2D0D3A630D00AA4471 /* ScreenInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenInfo.h; sourceTree = "<group>"; };
 		489D8D2E0D3A630D00AA4471 /* ScreenInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenInfo.m; sourceTree = "<group>"; };
 		48B9E7870D340B1E0001CACF /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Launcher.nib; sourceTree = "<group>"; };
@@ -473,7 +474,7 @@
 				48728D2A0D3004A80004D61B /* net_loop.c */,
 				483A783F0D2EEAAB00CB2E4C /* net_main.c */,
 				483A78400D2EEAAB00CB2E4C /* net_sdl.c */,
-				487C0A5B0DA94A0700A49FF5 /* net_sdlnet.c */,
+				489B9801120F37E8000C9282 /* net_udp.c */,
 				483A78410D2EEAAB00CB2E4C /* sv_main.c */,
 				483A78420D2EEAAB00CB2E4C /* sv_move.c */,
 				483A78430D2EEAAB00CB2E4C /* sv_phys.c */,
@@ -524,7 +525,8 @@
 				483A77FA0D2EE9A900CB2E4C /* net.h */,
 				48728D290D3004A80004D61B /* net_dgrm.h */,
 				48728D2B0D3004A80004D61B /* net_loop.h */,
-				487C0A5C0DA94A0700A49FF5 /* net_sdlnet.h */,
+				485B585F120F3090005C5C8F /* net_sys.h */,
+				489B9802120F37E8000C9282 /* net_udp.h */,
 				483A77FB0D2EE9A900CB2E4C /* protocol.h */,
 				483A77FC0D2EE9A900CB2E4C /* server.h */,
 			);
@@ -703,10 +705,10 @@
 				48FE585B0D3A82C8006BB491 /* QuakeArguments.m in Sources */,
 				48C85E3B0D3AD10E00797678 /* QuakeArgument.m in Sources */,
 				48895DB90D4914A000849ABF /* pl_osx.m in Sources */,
-				487C0A5D0DA94A0700A49FF5 /* net_sdlnet.c in Sources */,
 				4847CD5F12057F94000B560F /* sys_sdl_unix.c in Sources */,
 				4890A4621205A27B00452753 /* SUUpdaterDelegate.m in Sources */,
 				4890A5D21205D55700452753 /* UpdateButton.m in Sources */,
+				489B9803120F37E8000C9282 /* net_udp.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +807,7 @@
 					"$(HEADER_SEARCH_PATHS)",
 				);
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -830,7 +832,7 @@
 					"$(HEADER_SEARCH_PATHS)",
 				);
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Release;
 		};
