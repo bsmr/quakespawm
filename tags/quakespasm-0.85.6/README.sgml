@@ -1,0 +1,211 @@
+<!doctype linuxdoc system>
+<article>
+<title>QuakeSpasm
+<toc>
+<verb></verb>
+
+QuakeSpasm 0.85.6 (02 January 2012)
+
+<sect> About <p>
+
+QuakeSpasm is a Quake 1 engine based on the SDL port of FitzQuake.
+It includes 64bit CPU support, a new sound driver, several networking fixes and a few graphical niceities.
+
+<url url="http://quakespasm.sourceforge.net">
+
+
+<sect> Downloads <p>
+
+<itemize>
+<item><url url="http://quakespasm.sourceforge.net/download.htm">
+</itemize>
+
+
+<sect> Hints <p>
+
+<em> Visit the <url url="http://www.celephais.net/fitzquake" name="FitzQuake Homepage"> for a full run-down of the engine's commands and variables.</em>
+
+<itemize>
+<item>To disable some changes, use "<bf>quakespasm -fitz</bf>"
+
+<item>For different sound drivers use "<bf>SDL_AUDIODRIVER=</bf><em>DRIVER</em><bf> ./quakespasm</bf>"
+, where DRIVER may be alsa, dsp, pulse, esd ...
+
+<item><bf>Shift+Escape</bf> draws the Console.
+<item>From the console, use <bf>UP</bf> to browse the command line history and
+<bf>TAB</bf> to autocomplete command and map names.
+<item>There is currently no CD Music volume support. cd_sdl.c needs replacing with cd_linux.c, cd_bsd.c etc..
+<item>In windows, alternative CD drives are accessible by "<bf>quakespasm -cddev F</bf>" (for example)
+
+<item>Quakespasm allows loading new games (mods) on the fly with "<bf>game</bf> <em>GAMENAME</em>"
+</itemize>
+</p>
+
+<sect1>Music Playback<p>
+Since version 0.85.4, Quakespasm can play back external MP3, OGG and Wave music files.
+<itemize>
+<item>Tracks should be named like "track02.ogg", "track03.ogg" ... (there is no track01) and placed into "Quake/id1/music".
+<item>Unix users may need some extra libraries installed: "libmad" or "libmpg123" for MP3, and "libogg" and "libvorbis" for OGG.
+<item>To prevent tracks from being downsampled, use the "-sndspeed" option to set a sufficiently high sample rate.
+<item>Use the "-noextmusic" option to disable this feature.
+<item>See README.music for more details, if necessary.
+</itemize>
+
+
+<sect> Compiling <p>
+<p>To check-out the latest version of QuakeSpasm, use :
+<newline>
+<em>svn co https://quakespasm.svn.sourceforge.net/svnroot/quakespasm/trunk</em></p>
+
+<sect1> Linux/Unix <p>
+After extracting the source tarball, browse the Makefile and edit the music streaming options, then
+<code>
+make
+cp quakespasm /usr/local/games/quake (for example)
+</code>
+<newline>
+Compile time options include
+<itemize>
+<item><bf>make DEBUG=1</bf> for debugging
+<item><bf>make SDL_CONFIG=</bf><em>/PATH/TO/SDL-CONFIG</em> for unusual SDL installations
+</itemize>
+<p>Streaming music playback requires "libmad" or "libmpg123" for MP3, and "libogg" and "libvorbis" for OGG files.
+<p>HOME directory support can be enabled via <bf>Misc/homedir_0.patch</bf>
+<p>The project can also be built with Codeblocks (project files included).</p>
+
+<sect1> Windows <p>
+The QuakeSpasm developers cross-compile windows binaries using <url url="http://www.mingw.org" name="MinGW"> and <url url="http://mingw-w64.sf.net" name="Mingw-w64">.
+
+The project can also be built using Visual Studio 2005 (or newer).</p>
+
+<sect1> Mac OS X <p>
+A Quakespasm App (including program launcher and update framework) can be made using the <bf>Xcode</bf> template found in the MacOSX directory.
+
+Alternatively, have a look at <bf>Makefile.darwin</bf> for more instructions on building from a console.
+</p>
+
+
+<sect> Changes<p>
+
+<sect1> Changes in 0.85.6<p>
+<itemize>
+<item> More work for string buffer safety
+<item> Reverted v0.85.5 change of not allowing deathmatch and coop cvars to be set at the same time (was reported for possibility of causing compatibility issues with mods)
+<item> Several cleanups/changes in the cvar layer
+<item> Minor SDL video fixes.
+</itemize>
+</p>
+
+<sect1> Changes in 0.85.5<p>
+<itemize>
+<item> SDL input driver updated adding native keymap and dead key support to the console
+<item> Fixed a crash in net play in maps with extended limits
+<item> Verified successful compilation using gcc-4.6.x
+<item> Added workaround against GL texture flicker (z fighting), controlled by new cvar 'gl_zfix'
+<item> Read video variables early so that a vid_restart isn't necessary after init
+<item> mlook and lookspring fixes
+<item> Added support for loading external entity files, controlled by new cvar 'external_ents'
+<item> Made mp3 playback to allocate system memory instead of zone
+<item> Some updates to the progs interpreter code
+<item> Fixed r_nolerp_list parsing code of fitzquake
+<item> Made sure that deathmatch and coop are not set at the same time
+<item> Several code updates from uHexen2 project, several code cleanups.
+</itemize>
+</p>
+
+<sect1> Changes in 0.85.4<p>
+<itemize>
+<item> Implement music (OGG, MP3, WAV) playback
+<item> A better fix for the infamous SV_TouchLinks problem, no more hard lockups with maps such as "whiteroom"
+<item> Add support for mouse buttons 4 and 5
+<item> Fix the "unalias" console command
+<item> Restore the "screen size" menu item
+<item> Fixed an erroneous protocol check in the server code
+<item> Raised the default zone memory size to 384 kb
+<item> Raised the default max_edicts from 1024 to 2048
+<item> Revised lit file loading, the lit file must be from the same game directory as the map itself or from a searchpath with a higher priority
+<item> Fixed rest of the compiler warnings
+<item> Other minor sound and cdaudio updates
+</itemize>
+</p>
+
+<sect1> Changes in 0.85.3<p>
+<itemize>
+<item> Fix the "-dedicated" option (thanks Oz) and add platform specific networking code (default) rather than SDL_net
+<item> Much needed OSX framework stuff from Kristian
+<item> Add a persistent history feature (thanks Baker)
+<item> Add a slider for scr_sbaralpha, which now defaults to 0.95 (slightly transparent, allowing for a nicer status bar)
+<item> Allow player messages longer than 32 characters
+<item> Sockaddr fix for FreeBSD/OSX/etc networking
+<item> Connect status bar size to the scale slider
+<item> Include an ISNAN (is not-a-number) fix to catch the occassional quake C bug giving traceline problems
+<item> Enumerate options menus
+<item> Add a "prev weapon" menu item (from Sander)
+<item> Small fix to Sound Block/Unblock on win32
+<item> Lots of code fixes (some from uhexen2)
+<item> Sys_Error calls Host_Shutdown
+<item> Added MS Visual Studio support
+<item> Add a "-cd" option to let the CD Player work in dedicated mode, and some other CD tweaks.
+</itemize>
+
+<sect1> Changes in 0.85.2<p>
+<itemize>
+<item> Replace the old "Screen size" slider with a "Scale" slider
+<item> Don't constantly open and close condebug log
+<item> Heap of C clean-ups
+<item> Fix mapname sorting
+<item> Alias the "mods" command to "games"
+<item> Block/Unblock sound upon focus loss/gain
+<item> NAT fix (networking protocol fix)
+<item> SDLNet_ResolveHost bug-fix allowing connection to ports other than 26000
+<item> Bumped array size of sv_main.c::localmodels from 5 to 6 fixing an old fitzquake-0.85 bug which used to cause segfaults depending on the compiler.
+<item> Accept commandline options like "+connect ip:port"
+<item> Add OSX Makefile (tested?)
+</itemize>
+
+<sect1> Changes in 0.85.1<p>
+<itemize>
+<item>64 bit CPU support
+<item>Restructured SDL sound driver
+<item>Custom conback 
+<item>Tweaked the command line completion and added a map/changelevel autocompletion function
+<item>Alt+Enter toggles fullscreen
+<item>Disable Draw_BeginDisc which causes core dumps when called excessively
+<item>Show helpful info on start-up
+<item>Include real map name (sv.name) and skill in the status bar
+<item>Remove confirm quit dialog
+<item>Don't spam the console with PackFile seek requests
+<item>Default to window mode
+<item>Withdraw console when playing demos
+<item>Don't play demos on program init
+<item>Default Heapsize is 64meg
+<item>Changes to default console alpha, speed
+<item>Changes to cvar persistence gl_flashblend (default 0), r_shadow, r_wateralpha, r_dynamic, r_novis
+</itemize>
+
+
+<sect> Todo <p>
+<itemize>
+<item>Add uHexen2's first person camera (and menu item)
+<item>Native CD audio support (if desired). cd_sdl.c doesn't have proper volume controls
+<item>Test usb keyboards. Do the keypads work? Make the OSX apple key work.
+<item>Complete the unix user directories support
+</itemize>
+
+
+<sect> Links <p>
+
+<itemize>
+<item><url url="http://quakespasm.sourceforge.net" name="QuakeSpasm Homepage">
+<item><url url="http://sourceforge.net/projects/quakespasm" name="QuakeSpasm Project page">
+<item><url url="http://www.celephais.net/fitzquake" name="FitzQuake Homepage">
+<item><url url="http://www.kristianduske.com/fitzquake" name="Sleepwalkr's Original SDL Port">
+<item><url name="Baker's 0.85 Source Code" url="http://quakeone.com/proquake/src_other/fitzquake_sdl_20090510_src_beta_1.zip">
+<item><url url="http://www.celephais.net/board/view_thread.php?id=60452" name="Func Quakespasm forum">
+<item><url url="http://www.celephais.net/board/view_thread.php?id=60172" name="Func SDL Fitzquake forum">
+<item><url url="mailto:gmail - dot - com - username - sezeroz" name="Ozkan's email">
+<item><url url="mailto:yahoo - dot - com - username - stevenaaus" name="Stevenaaus email">
+<item><url url="mailto:gmail - dot - com - username - inveigle" name="Kristian's email">
+</itemize>
+
+</article>
